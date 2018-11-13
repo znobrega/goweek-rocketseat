@@ -1,2 +1,2 @@
 #NODE
-Just training my node skills
+Just training my node

@@ -1,9 +1,15 @@
-const express = require('express')
+const express = require('express');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.render("index")
-})
+const TweetController = require('./controllers/TweetController');
+const LikesController = require('./controllers/LikesController');
 
-module.exports = router
+
+router.get('/', TweetController.landing);
+router.get('/tweets', TweetController.index);
+router.post('/tweets', TweetController.store);
+
+router.post('/likes/:id', LikesController.store);
+
+module.exports = router;    

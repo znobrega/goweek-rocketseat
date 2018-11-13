@@ -1,5 +1,23 @@
 <% include partials/header %>
 
-<h1>Aqui é o ejs funcionando</h1>
+<h1>Hello, you can see the tweets: <a href="/tweets">here</a> </h1>
+<h3>Also, on the console you can see the socket.io working, when you add a like in a tweeter</h3>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+<script type="text/javascript">
+
+    var socket = io('http://localhost:3000');
+
+    socket.on('tweet', function(data) {
+        console.log(data)
+
+    });
+
+    socket.on('like', function(data) {
+        console.log(data);
+    });
+
+</script>
 
 <% include partials/footer %>
